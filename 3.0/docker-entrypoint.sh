@@ -3,7 +3,7 @@ set -e
 
 createAdminAccounts() {
   echo "creating admin accounts";
-  mongod --port 27017
+  mongod --port 27017 --fork --logpath /var/log/mongod.log
   echo 2222222
   export SITE_USR_ADMIN_PWD='xxx'
   echo 3333333
