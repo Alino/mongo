@@ -3,9 +3,8 @@ set -e
 
 createAdminAccounts() {
   echo "creating admin accounts";
-  mkdir -p ~/log
-  touch ~/log/mongodb.log
-  mongod --port 27017 --fork --logpath ~/log/mongodb.log
+  touch ~/mongodb.log
+  mongod --port 27017 --fork --logpath ~/mongodb.log
   sleep 8
   echo 2222222
   export SITE_USR_ADMIN_PWD='xxx'
