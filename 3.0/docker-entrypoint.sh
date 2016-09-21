@@ -30,7 +30,9 @@ createAdminAccounts() {
   echo 3333333
   mongo admin --eval "db.createUser({user:'siteUserAdmin', pwd:'$SITE_USR_ADMIN_PWD',roles: [{role:'userAdminAnyDatabase', db:'admin'}, 'readWrite' ]})";
   mongo admin --eval "db.createUser({user:'kuknito', pwd:'$SITE_KUKNITO_PWD',roles: [{role:'readWrite', db:'kuknito'}]})";
+  sleep 3
   mongo admin --eval "db.createUser({user:'oplogReader', pwd:'$SITE_OPLOGREADER_PWD',roles: [{role:'read', db:'local'}]})";
+  sleep 3
   mongo admin --eval "db.createUser({user:'siteRootAdmin', pwd:'$SITE_ROOT_PWD',roles: [{role:'root', db:'admin'}, 'readWrite' ]})";
   echo 4444444
   sleep 3
@@ -42,5 +44,5 @@ createAdminAccounts() {
 }
 
 createAdminAccounts
-sleep 8
+sleep 15
 exec "$@"
