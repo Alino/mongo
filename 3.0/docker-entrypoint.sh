@@ -20,7 +20,7 @@ fi
 
 createAdminAccounts() {
   echo "creating admin accounts";
-  mongod --port 27017 --fork --logpath /data/db/mongodb.log
+  mongod --port 27017 --replSet "rs" --fork --logpath /data/db/mongodb.log
   sleep 8
   echo 2222222
   export SITE_USR_ADMIN_PWD='xxx'
