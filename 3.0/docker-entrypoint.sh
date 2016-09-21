@@ -3,15 +3,15 @@ set -e
 
 # start mongod without auth and create admin accounts
 {
-  echo "creating admin accounts";
-  mongod --port 27017
+  exec echo "creating admin accounts";
+  exec mongod --port 27017
   SITE_USR_ADMIN_PWD='xxx';
   SITE_ROOT_PWD='yyy';
-  mongo admin --eval "db.createUser({user:'siteUserAdmin', pwd:'$SITE_USR_ADMIN_PWD',roles: [{role:'userAdminAnyDatabase', db:'admin'}, 'readWrite' ]})";
-  mongo admin --eval "db.createUser({user:'siteRootAdmin', pwd:'$SITE_ROOT_PWD',roles: [{role:'root', db:'admin'}, 'readWrite' ]})";
-  echo "exiting mongo (will start again)";
-  mongo admin --eval "db.shutdownServer()";
-  echo "admin accounts created";
+  exec mongo admin --eval "db.createUser({user:'siteUserAdmin', pwd:'$SITE_USR_ADMIN_PWD',roles: [{role:'userAdminAnyDatabase', db:'admin'}, 'readWrite' ]})";
+  exec mongo admin --eval "db.createUser({user:'siteRootAdmin', pwd:'$SITE_ROOT_PWD',roles: [{role:'root', db:'admin'}, 'readWrite' ]})";
+  exec echo "exiting mongo (will start again)";
+  exec mongo admin --eval "db.shutdownServer()";
+  exec echo "admin accounts created";
 }
 
 if [ "${1:0:1}" = '-' ]; then
