@@ -3,7 +3,8 @@ set -e
 
 createAdminAccounts() {
   echo "creating admin accounts";
-  mkdir ~/log
+  mkdir -p ~/log
+  touch ~/log/mongodb.log
   mongod --port 27017 --fork --logpath ~/log/mongodb.log
   sleep 8
   echo 2222222
