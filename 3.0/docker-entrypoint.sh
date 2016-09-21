@@ -35,7 +35,7 @@ createAdminAccounts() {
   sleep 3
   echo "exiting mongo (will start again)";
   echo 7777777
-  mongo admin --eval "db.shutdownServer()";
+  mongo admin --eval "db.shutdownServer({ force: true })";
   sleep 3
   echo 8888888
   echo "admin accounts created";
