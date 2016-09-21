@@ -3,8 +3,8 @@ set -e
 
 createAdminAccounts() {
   echo "creating admin accounts";
-  gosu touch /data/mongodb.log
-  gosu mongod --port 27017 --fork --logpath /data/mongodb.log
+  gosu mongodb touch /data/mongodb.log
+  gosu mongodb mongod --port 27017 --fork --logpath /data/mongodb.log
   sleep 8
   echo 2222222
   export SITE_USR_ADMIN_PWD='xxx'
